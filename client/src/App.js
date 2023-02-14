@@ -1,5 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from "./pages/home";
+import SignUp from "./pages/SignUp"
+
+
+
+
+
+
 
 function App() {
   return (
