@@ -137,9 +137,48 @@ const ResponsiveAppBar = () => {
                             ))}
                             {showCollapseableSignin()}
                         </Menu>
-                </Box>
+                    </Box>
+                    {/* END COLLAPSABLE MENU */}
+
+                    {/* START REGULAR MENU */}
+                    <HouseIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <Typography
+                        variant='h5'
+                        noWrap
+                        component='a'
+                        href=''
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'flex', md: 'none' },
+                            flexGrow: 1,
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                        >
+                            Assignmint
+                        </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        {pages.map((page) => (
+                            <Link href={`/${page}`} key={page}>
+                                <Button
+                                // key={page}
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                    {page}
+                                </Button>
+                            </Link>
+                        ))}
+                        {showRegularSignin()}
+                    </Box>
+                   {/*END OF REGULAR MENU */}
+
             </Toolbar>
             </Container> 
         </AppBar>
-    )
-}
+    );
+ };
+ export default ResponsiveAppBar;
