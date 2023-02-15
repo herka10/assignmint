@@ -1,5 +1,6 @@
 const { GraphQLError } = require('graphql');
 const { User, Event, Group, List, Item } = require('../models')
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Date: dateScalar,
@@ -74,8 +75,158 @@ const resolvers = {
 
         addUser: async (parent, args, context, info) => {
             const user = await User.Create (args)
-            return user.populate()
-        }
-    }
+            return { token, user };
+        },
 
-}
+        updateUser: async (parent, args, context) => {
+          if (context.user) {
+            return await User.findByIdAndUpdate(context.user._id, args, {
+              new:true,
+            });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+
+        removeUser: async(parent, args, context) => {
+          if (context.user) {
+            return User.findByIdAndDelete({
+              _id: context.user._id
+            });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addGroup: async (parent, args, context) => {
+          if (context.user) {
+            const group = await Group.create({
+              ...args,
+            });
+            console.log(group)
+
+            await User.findOneAndUpdate(
+              {_id:context.user_id },
+              {$push: {groups: group._id}},
+              {new: true}
+            );
+            return group;
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+
+        updateGroup: async (parent, args, context) => {
+          if(context.user) {
+            return await Group.findOneAndUpdate(args._id, args, {
+              new: true
+            });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        } ,
+
+        removeGroup: async (parent, { skill }, context) => {
+          if (context.user) {
+            return User.findByIdAndDelete({
+              _id: context.user_id
+            });
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addEvent: async (parent, args, context) => {
+          if (context.user) {
+            const event = await Event.create({
+            ...args,
+          });
+          console.log(event);
+          await User.findOneAndUpdate(
+            { firstName: args.firstName },
+            { $push: { events: event._id} },
+            { new: true }
+          );
+          return event;
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      updateEvent: async (parent, args, context) => {
+        console.log(args);
+        if (context.user) {
+          return await Event.findByIdAndUpdate(args._id, args, { new: true });
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      deleteEvent: async (parent, args, context) => {
+        if (context.user) {
+          const event = await Event.findById({ _id });
+          
+          if (event) {
+            return await Event.findByIdAndDelete({ _id });
+          }
+          throw new AuthenticationError('No event with that Name was found!');
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      addList: async (parent, args, context) => {
+        if (context.user) {
+          const list = await List.create({
+            ...args,
+          });
+          await User.findOneAndUpdate(
+            { _id: context.user._id},
+            { $push: { lists: list._id }},
+            { new: true }
+          );
+          return list;
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      updateList: async (parent, args, context) => {
+        console.log(args);
+        if (context.user) {
+          return await List.findByIdAndUpdate(args._id, args, {
+            new: true,
+          });
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      removeList: async (parent, {_id}, context) => {
+        if (context.user) {
+          const list = await List.findById({ _id });
+          if (list) {
+            return await List.findByIdAndDelete({ _id });
+          }
+          throw new AuthenticationError('List is not found!');
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      addItem: async (parent, {listId, itemDescription, quanity }, context) => {
+        if (context.user) {
+          const updatedList = await List.findOneAndUpdate(
+            { _id: listId },
+            { $push: { items: { itemDescription, quanity }}},
+            { new: true, runValidators: true }
+          );
+          return updatedList;
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
+
+      removeItem: async (parent, { _id }, context) => {
+        if (context.user) {
+          const item = await Item.findById({ _id });
+          if (item) {
+            return await Item.findOneAndDelete({ _id });
+          }
+          throw new AuthenticationError('item not found!');
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      }
+    },
+
+};
+
+module.exports = resolvers;
