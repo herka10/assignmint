@@ -8,6 +8,7 @@ import Calendar from "./pages/Calendar";
 import Navbar from "./components/Navbar/index";
 import List from "./pages/List";
 
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -29,10 +30,10 @@ const authLink = setContext((_, { headers }) => {
         ...headers,
         authorization: token ? `Bearer ${token}` : "",
       },
-    },
-  });
-  
- const client = new ApolloClient({
+    }
+});
+
+const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
