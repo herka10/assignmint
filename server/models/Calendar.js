@@ -3,12 +3,12 @@ const eventSchema = require('./Event');
 
 const calendarSchema = new Schema({
     firstName: {
-        type:String,
+        type: String,
         required: true,
     },
-    events: [eventSchema],
+    // TODO: Don't think we need this? Populates in resolvers - events: [eventSchema],
 });
 
 const Calendar = model('Calendar', calendarSchema);
 
-module.export = Calendar;
+module.exports = Calendar;
