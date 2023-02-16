@@ -19,8 +19,8 @@ const resolvers = {
       users: async () => {
         return User.find().select('-__v -password');
       },
-      user: async (parent, { firstName }) => {
-        return User.findOne({ firstName })
+      user: async (parent, { name }) => {
+        return User.findOne({ name })
           .select('-__v -password')
           .populate('events');
       },
@@ -138,7 +138,7 @@ const resolvers = {
           });
           console.log(event);
           await User.findOneAndUpdate(
-            { firstName: args.firstName },
+            { name: args.name },
             { $push: { events: event._id} },
             { new: true }
           );

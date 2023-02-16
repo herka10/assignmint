@@ -1,7 +1,7 @@
 const typeDefs = `
 type User {
     _id: ID
-    firstName:String
+    name:String
     email: String
     events: [Event]
     groups: [Group]
@@ -10,7 +10,7 @@ type User {
 type Event {
     _id: ID
     title: String
-    firstName: String
+    name: String
     startDate: String
     dueDate: String
 }
@@ -45,8 +45,8 @@ type Auth {
 type Query {
     me: User
     users: [User]
-    user(firstName: String!): User
-    lists(firstName: String!): [List]
+    user(name: String!): User
+    lists(name: String!): [List]
     list(_id: ID!): List
     items: [Item]
     item(_id: ID!): Item
@@ -61,12 +61,12 @@ type Mutation {
     addUser(name: String!, email: String!, password: String!): Auth
     updateUser(name: String!, email: String!, password: String!, groups: [ID], events: [ID]): User
     removeUser(name: String!, email: String!, password: String!, groups: [ID], events: [ID]): User
-    addGroup(title: String!, firstName: String, users: String!): Group
-    updateGroup(title: String!, firstName: String, users: [ID]): Group
-    removeGroup(title: String!, firstName: String, users: [ID]): Group
-    addEvent(title: String!, firstName: String, startDate: String!, dueDate: String!): Event
-    updateEvent(title: String!, firstName: String, startDate: String!, dueDate: String!): Event
-    deleteEvent(title: String!, firstName: String, startDate: String!, dueDate: String!): Event
+    addGroup(title: String!, name: String, users: String!): Group
+    updateGroup(title: String!, name: String, users: [ID]): Group
+    removeGroup(title: String!, name: String, users: [ID]): Group
+    addEvent(title: String!, name: String, startDate: String!, dueDate: String!): Event
+    updateEvent(title: String!, name: String, startDate: String!, dueDate: String!): Event
+    deleteEvent(title: String!, name: String, startDate: String!, dueDate: String!): Event
     addList(listName: String!, createAt: String): List
     updateList(listName: String!, createAt: String): List
     removeList(listName: String!, createAt: String): List
