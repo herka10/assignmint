@@ -2,21 +2,21 @@
     {
         "name": "Rafael",
         "email": "ralphy@gmail.com",
-        "password": "ralphypw"
+        "password": "ralphy123"
     },
     {
         "name": "Leonardo",
         "email": "lenny@gmail.com",
-        "password": "lennypw"
+        "password": "lenny123"
     },
     {
-        "name": "Donatello",
+        "name": "Donny",
         "email": "donnie@gmail.com",
-        "password": "donniepw"
+        "password": "donny123"
     },
     {
-        "name": "Michoangelo",
+        "name": "Mikey",
         "email": "mikey@gmail.com",
-        "password": "mikeypw"
+        "password": "mikey123"
     }
 ]
