@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
 import Navbar from "./components/Navbar/index";
 import List from "./pages/List";
@@ -15,7 +16,7 @@ import {
   createHttpLink,
  } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { StoreProvider } from "./utils/GlobalState";
+//import { StoreProvider } from "./utils/GlobalState";
 import "./App.css";
 
 const httpLink = createHttpLink({
@@ -27,6 +28,7 @@ const authLink = setContext((_, { headers }) => {
     return {
       headers: {
         ...headers,
+
         authorization: token ? `Bearer ${token}` : "",
       },
     }
@@ -43,7 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <StoreProvider>
+          {/* <StoreProvider> */}
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
@@ -52,7 +54,7 @@ function App() {
               <Route path="/calender" element={<Calendar />} />
               <Route path="/list" element={<List />} />
             </Routes>
-          </StoreProvider>
+          {/* </StoreProvider> */}
         </div>
       </Router>
     </ApolloProvider>
