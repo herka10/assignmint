@@ -7,7 +7,7 @@ const itemSchema = new Schema(
             minLength:1,
             maxlength: 200,
         },
-        quanity: {
+        quantity: {
             type: Number,
             default: 0,
         },

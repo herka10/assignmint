@@ -11,8 +11,14 @@ const groupSchema = new Schema({
     firstName: {
         type: String,
     },
+    users: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        }
+    ]
 });
 
-const Group = mongoose.model('Group', groupSchema);
+const Group = model('Group', groupSchema);
 
-module.exports = Groups;
+module.exports = Group;
