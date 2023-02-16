@@ -3,7 +3,7 @@ const { User, Event, Group, List, Item } = require('../models')
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-    Date: dateScalar,
+    // TODO: dateScalar error - Date: dateScalar,
     Query: {
       me: async (parent, args, context) => {
         if (context.user) {
