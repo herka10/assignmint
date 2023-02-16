@@ -3,15 +3,15 @@ type User {
     _id: ID
     firstName:String
     email: string
-    events: [Events]
-    groups: [Groups]
+    events: [Event]
+    groups: [Group]
 }
 
 type Event {
     _id: ID
     title: String
     firstName: String
-    startDate: Date
+    dueDate: Date
     dueDate: Date
 }
 
@@ -32,18 +32,18 @@ type Item {
 type Groups {
     _id: ID
     title: String
-    users: [Users]
+    user: [User]
     quantity: Int
-    events: [Events]
+    events: [Event]
 }
 
 type Query {
     me: User
-    user: [Users]
+    user: [User]
     user(firstName: String!): User
     lists(firstName: String!): [List]
-    list(_id: ID!): Lists
-    items: [Items]
+    list(_id: ID!): List
+    items: [Item]
     item(_id: ID!): Item
     events: [Event]
     evnt(title: String!): Event
