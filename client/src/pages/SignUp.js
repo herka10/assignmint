@@ -28,7 +28,7 @@ const SignUp = (props) => {
         event.preventDefault();
         console.log(formState);
         try {
-            const { data } = await signin({
+            const { data } = await login({
                 variables: { ...formState },
             })
 
