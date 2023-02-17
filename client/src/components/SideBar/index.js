@@ -1,9 +1,6 @@
 import React from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import './SlideBar.css'
-// import 'bootstrap-icons/font/bootstrap-icons.css'
 
-function SlideBar() {
+function SideBar() {
     return(
         <div className='container-fluid'>
             <div className='row'>
@@ -36,4 +33,4 @@ function SlideBar() {
     )
 }
 
-export default SlideBar;
+export default SideBar;
