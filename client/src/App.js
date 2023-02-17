@@ -1,18 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn.js";
-import Calendar from "./pages/Calendar";
-import Navbar from "./components/Navbar/index";
-import List from "./pages/List";
-
-
-=======
->>>>>>> 619c70a4035eefca4d9f7cf80323a1c845df11ef
 import {
   ApolloClient,
   InMemoryCache,
