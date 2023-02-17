@@ -1,14 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn.js";
-import Calendar from "./pages/Calendar";
-import Navbar from "./components/Navbar/index";
-import List from "./pages/List";
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -16,6 +6,16 @@ import {
   createHttpLink,
  } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn.js";
+import Calendar from "./pages/Calendar";
+import List from "./pages/List";
+import Header from './components/Header'
+
 //import { StoreProvider } from "./utils/GlobalState";
 import "./App.css";
 
@@ -24,14 +24,13 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
-    return {
-      headers: {
-        ...headers,
-
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    }
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 const client = new ApolloClient({
@@ -41,12 +40,12 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = React.useState(false)
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <StoreProvider> */}
-            <Navbar />
+            <Header/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signup" element={<SignUp />} />
@@ -54,7 +53,6 @@ function App() {
               <Route path="/calender" element={<Calendar />} />
               <Route path="/list" element={<List />} />
             </Routes>
-          {/* </StoreProvider> */}
         </div>
       </Router>
     </ApolloProvider>

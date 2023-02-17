@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations';
 
@@ -28,7 +28,7 @@ const SignUp = (props) => {
         event.preventDefault();
         console.log(formState);
         try {
-            const { data } = await login({
+            const { data } = await addUser({
                 variables: { ...formState },
             })
 
