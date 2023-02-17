@@ -47,14 +47,15 @@ function App() {
       <Router>
         <div>
             <Header/>
-            <SideBar/>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
-              {/* <Route path="/calender" element={<Calendar />} /> */}
-              <Route path="/list" element={<List />} />
-            </Routes>
+            <SideBar>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/calender" element={<Calendar />} />
+                <Route path="/list" element={<List />} />
+              </Routes>
+            </SideBar>
         </div>
       </Router>
     </ApolloProvider>
