@@ -15,7 +15,7 @@ import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
 import List from "./pages/List";
 import Header from './components/Header'
-import Nav from './components/Navbar'
+import SideBar from './components/SideBar'
 
 //import { StoreProvider } from "./utils/GlobalState";
 import "./App.css";
@@ -47,7 +47,7 @@ function App() {
       <Router>
         <div>
             <Header/>
-            <Nav/>
+            <SideBar/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signup" element={<SignUp />} />
