@@ -58,4 +58,3 @@ const ResponsiveAppBar = () => {
         }
     };
 }
-export default Navbar
