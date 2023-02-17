@@ -1,15 +1,15 @@
 const connection = require('../config/connection')
 const { User } = require('../models')
+const userSeeds = require('./userSeed.json')
 
 connection.once('open', async () => {
-    await User.deleteMany()
+    try {
+        await User.deleteMany()
+        await User.create(userSeeds)
 
-    await User.create({
-        username: 'Rafael',
-        email: 'rafael@gmail.com',
-        password: 'redninja'
-    })
-
-    console.log('seed done!')
-    process.exit(0)
+        console.log('seed done!')
+        process.exit(0)
+    } catch (err) {
+        throw err;
+    }
 })
