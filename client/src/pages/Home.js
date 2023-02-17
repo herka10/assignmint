@@ -5,7 +5,7 @@ import Upcoming from "../components/Upcoming";
 // import FamilyList from "../components/FamilyList"
 
 //import SignUp from "../components/SignUp";
-// import Calendar from "./Calendar"
+import Calendar from "./Calendar"
 
 const Home = () => {
     return (
@@ -15,10 +15,9 @@ const Home = () => {
             justifyContent: "center",
         }}
         >
-            <div className="smallCalendar">
+            <Calendar/>
                 <upcoming />
             </div>
-        </div>
     );
 };
 
