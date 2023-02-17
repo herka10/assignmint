@@ -62,5 +62,38 @@ export const REMOVE_USER = gql`
 `
 
 export const ADD_GROUP = gql`
-    mutation addGroup($)
+    mutation addGroup($title: String!, name: String, users: String!) {
+        addGroup(title: $title, name: $name, users: $users) {
+            token
+            group {
+                _id
+                name
+            }
+        }
+    }
 `
+
+export const UPDATE_GROUP = gql`
+    mutation updateGroup($title: String!, name: String, users: [ID]) {
+        updateGroup(title: $title, name: $name, users: $users) {
+            token
+            group {
+                _id
+                name
+            }
+        }
+    }
+`
+
+export const REMOVE_GROUP = gql`
+    mutation removeGroup($title: String!, name: String, users: [ID]) {
+        removeGroup(title: $title, name: $name, users: $users) {
+            token
+            group {
+                _id
+                name
+            }
+        }
+    }
+`
+
