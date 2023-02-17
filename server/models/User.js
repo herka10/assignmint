@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
@@ -42,7 +41,7 @@ const userSchema = new Schema({
 //set put presave middleware
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, saltRounds);
+        this.password = await bcrypt.hash(this.password, 8);
     }
 
     next();
