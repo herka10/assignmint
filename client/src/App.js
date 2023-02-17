@@ -15,6 +15,7 @@ import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
 import List from "./pages/List";
 import Header from './components/Header'
+import Nav from './components/Navbar'
 
 //import { StoreProvider } from "./utils/GlobalState";
 import "./App.css";
@@ -46,11 +47,12 @@ function App() {
       <Router>
         <div>
             <Header/>
+            <Nav/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/calender" element={<Calendar />} />
+              {/* <Route path="/calender" element={<Calendar />} /> */}
               <Route path="/list" element={<List />} />
             </Routes>
         </div>
