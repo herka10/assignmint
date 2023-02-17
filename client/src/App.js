@@ -8,6 +8,8 @@ import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
 import Navbar from "./components/Navbar/index";
 import List from "./pages/List";
+import Footer from "./components/Footer";
+
 
 import {
   ApolloClient,

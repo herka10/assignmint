@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.w-footer {
+  width: 100%;
+}
+
+.mt-footer {
+  margin-top: auto;
+}
+
+.text-footer {
+  color: #757474;
+  background-color: #7BE0AD;
+}
+
+.container {
+  width: 92%;
+}
+
+.text-center-footer {
+  text-align: center;
+}
+
+.mb-footer {
+  margin-bottom: 1.625rem;
+}
