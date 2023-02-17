@@ -35,8 +35,6 @@ export const SIGNUP_USER = gql`
     }
 `
 
-
-
 export const UPDATE_USER = gql`
     mutation updateUser($name: String!, $email: String!, $password: String!) {
         updateUser(name: $name, email: $email, password: $password) {
@@ -90,6 +88,30 @@ export const REMOVE_GROUP = gql`
         removeGroup(title: $title, name: $name, users: $users) {
             token
             group {
+                _id
+                name
+            }
+        }
+    }
+`
+
+export const ADD_EVENT = gql`
+    mutation addEvent($title: String!, name: String, startDate: String!, dueDate: String!) {
+        addEvent(title: $title, name: $name, startDate: $startDate, dueDate: $dueDate) {
+            token
+            event {
+                _id
+                name
+            }
+        }
+    }
+`
+
+export const UPDATE_EVENT = gql`
+    mutation updateEvent($title: String!, name: String, startDate: String!, dueDate: String!) {
+        updateEvent(title: $title, name: $name, startDate: $startDate, dueDate: $dueDate) {
+            token
+            event {
                 _id
                 name
             }
