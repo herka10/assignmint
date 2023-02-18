@@ -9,15 +9,16 @@ import Calendar from "./Calendar"
 
 const Home = () => {
     return (
-        <div
-        style={{
-            display: "flex",
-            justifyContent: "center",
-        }}
-        >
-            <Calendar/>
-                <upcoming />
-            </div>
+        <h1>HOME PAGE</h1>
+        // <div
+        // style={{
+        //     display: "flex",
+        //     justifyContent: "center",
+        // }}
+        // >
+        //     <Calendar/>
+        //         <upcoming />
+        //     </div>
     );
 };
 
