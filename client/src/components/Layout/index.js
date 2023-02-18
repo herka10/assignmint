@@ -31,7 +31,7 @@ function Layout(props) {
                         </li>
                     </ul>
                 </div>
-                <div className='col'>
+                <div className='col' id='pageRendered'>
                     {props.children}
                 </div>
             </div>
