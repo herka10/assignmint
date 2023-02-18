@@ -13,7 +13,6 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
-import List from "./pages/List";
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 
@@ -41,7 +40,7 @@ const client = new ApolloClient({
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(true)
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -53,7 +52,6 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/calender" element={<Calendar />} />
-                <Route path="/list" element={<List />} />
               </Routes>
             </SideBar>
         </div>

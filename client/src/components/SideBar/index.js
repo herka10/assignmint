@@ -25,7 +25,12 @@ function SideBar() {
                         </li>
                         <li>
                             <a className='nav-link px-2'>
-                                <i className='bi-heart' /> <span className='ms-1 d-none d-sm-inline'>Fitness</span>
+                                <i className='bi-heart' /> <span className='ms-1 d-none d-sm-inline'>Lists</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a className='nav-link px-2'>
+                                <i className='bi-heart' /> <span className='ms-1 d-none d-sm-inline'>Groups</span>
                             </a>
                         </li>
                     </ul>
