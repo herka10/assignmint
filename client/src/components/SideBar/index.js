@@ -2,37 +2,40 @@ import React from 'react'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'bootstrap-icons/font/bootstrap-icons.css'
 
-function SlideBar() {
+function SideBar() {
     return(
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-auto min-vh-100 bg-dark'>
                     <ul>
-                        <il>
+                        <li>
                             <a className='nav-link px-2'>
                                 <i className='bi-house' /> <span className='ms-1 d-none d-sm-inline'>Home</span>
                             </a>
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <a className='nav-link px-2'>
-                                <i className='bi-speedometer' /> <span className='ms-1 d-none d-sm-inline'>Home</span>
+                                <i className='bi-speedometer' /> <span className='ms-1 d-none d-sm-inline'>Today's Tasks</span>
                             </a>
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <a className='nav-link px-2'>
-                                <i className='bi-table' /> <span className='ms-1 d-none d-sm-inline'>Home</span>
+                                <i className='bi-table' /> <span className='ms-1 d-none d-sm-inline'>Calendar</span>
                             </a>
-                        </il>
-                        <il>
+                        </li>
+                        <li>
                             <a className='nav-link px-2'>
-                                <i className='bi-heart' /> <span className='ms-1 d-none d-sm-inline'>Home</span>
+                                <i className='bi-heart' /> <span className='ms-1 d-none d-sm-inline'>Fitness</span>
                             </a>
-                        </il>
+                        </li>
                     </ul>
+                </div>
+                <div className='col'>
+                    <h2>MINT</h2>
                 </div>
             </div>
         </div>
     )
 }
 
-export default SlideBar;
+export default SideBar;
