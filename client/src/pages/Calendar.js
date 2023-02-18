@@ -7,7 +7,9 @@ import moment from 'moment'
 const localizer = momentLocalizer(moment) // or globalizeLocalizer
 
 const myCalendar = (props) => (
+  
   <div className="myCustomHeight">
+    <h1>Calendar</h1>
     <Calendar
       localizer={localizer}
       //events={myEventsList}
