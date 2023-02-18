@@ -1,0 +1,7 @@
+u1 {
+    margin: 0;
+    padding: 0;
+}
+ul li a:hover {
+    curser: pointer;
+}
