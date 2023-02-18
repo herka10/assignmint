@@ -13,9 +13,18 @@ code {
     monospace;
 }
 
-#sidebar {
-  background-color: #757474;
-  padding: 10px;
+#logo {
+  height: 150px;
+  width: 300px;
+}
+
+#navbar {
+  background-color: #E7E5E5;
   
 }
 
+li {
+  list-style: none;
+  text-decoration: none;
+  color: #7BE0AD;
+}

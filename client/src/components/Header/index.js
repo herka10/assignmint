@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <header>
            <div>
-            <img src={Logo}/>
+            <img id='logo' src={Logo}/>
             </div>
         </header>
     )
