@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -41,7 +40,8 @@ const userSchema = new Schema({
 //set put presave middleware
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, 8);
+        const saltRounds = 8;
+        this.password = await bcrypt.hash(this.password, saltRounds);
     }
 
     next();
@@ -49,9 +49,9 @@ userSchema.pre('save', async function (next) {
 
 //compare the new password with hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
+    return bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

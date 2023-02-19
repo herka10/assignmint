@@ -6,18 +6,26 @@ import Upcoming from "../components/Upcoming";
 
 //import SignUp from "../components/SignUp";
 import Calendar from "./Calendar"
+import auth from '../utils/auth'
+import { Navigate } from 'react-router-dom'
 
 const Home = () => {
+
+    const isAuthenticated = auth.loggedIn()
+    if (!isAuthenticated) {
+      return <Navigate to='/' />
+    }
+
     return (
         <div
-        style={{
-            display: "flex",
-            
-        }}
+            style={{
+                display: "block",
+            }}
         >
-            <Calendar/>
-                <upcoming />
-            </div>
+            <h1>Welcome!</h1>
+            <Calendar />
+            <upcoming />
+        </div>
     );
 };
 
