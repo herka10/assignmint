@@ -14,7 +14,7 @@ const Home = () => {
             display: "flex",
             
         }}
-        >
+        > 
             <Calendar/>
                 <upcoming />
             </div>
