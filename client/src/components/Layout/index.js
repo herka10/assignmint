@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import auth from '../../utils/auth'
 
 
 function Layout(props) {
@@ -10,7 +10,7 @@ function Layout(props) {
                 <div className='col-auto min-vh-100' id='navbar'>
                     <ul>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/'}>
+                            <Link className='nav-link px-2 text-dark' to={'/home'}>
                                 <i className='bi-house'></i> <span className='ms-1 d-none d-sm-inline'>Home</span>
                             </Link>
                         </li>
@@ -25,9 +25,12 @@ function Layout(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/signin'}>
+                            <a className='nav-link px-2 text-dark' href='#' onClick={e=> {
+                                e.preventDefault()
+                                auth.logout()
+                            }}>
                             <i className="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
-                            </Link>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -1,4 +1,6 @@
-const typeDefs = `
+const { gql } = require('apollo-server-express');
+
+const typeDefs = gql`
 type User {
     _id: ID
     name: String
@@ -75,6 +77,6 @@ type Mutation {
     addItem(itemDescription: String, quantity: Int): Item
     removeItem(itemDescription: String, quantity: Int): Item
 }
-`
+`;
 
 module.exports = typeDefs

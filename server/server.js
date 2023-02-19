@@ -6,6 +6,7 @@ const { expressMiddleware } = require('@apollo/server/express4')
 const typeDefs = require('./schemas/typeDefs')
 const resolvers = require('./schemas/resolvers')
 const { authMiddleware } = require('./utils/auth')
+const auth = require('./utils/auth')
 
 const PORT = process.env.PORT || 3001
 const app = express()

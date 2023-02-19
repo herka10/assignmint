@@ -58,16 +58,16 @@ function App() {
                   element={<Login />} />
                 <Route 
                   path="/signup" 
-                  element={authentication ? <Navigate to="/" /> : <SignUp />} />
+                  element={<SignUp />} />
                 <Route 
                   path="/home" 
-                  element={authentication ? <Navigate to="/" /> : <Home />} />
+                  element={<Home />} />
                 <Route 
                   path="/calender" 
-                  element={authentication ? <Navigate to='/' /> : <Calendar />} />
+                  element={<Calendar />} />
                 <Route 
                   path="/todo" 
-                  element={authentication ? <Navigate to='/' /> : <List />} />
+                  element={<List />} />
               </Routes>
             </Layout>
         </div>
