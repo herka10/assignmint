@@ -12,8 +12,9 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn.js";
 import Calendar from "./pages/Calendar";
-import Header from './components/Header'
-import Layout from './components/Layout'
+import Header from './components/Header';
+import Layout from './components/Layout';
+import ToDoList from './components/List';
 
 //import { StoreProvider } from "./utils/GlobalState";
 
@@ -50,7 +51,7 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/calender" element={<Calendar />} />
-                <Route path="/list" element={<List />} />
+                <Route path="/list" element={<ToDoList/>} />
               </Routes>
             </Layout>
         </div>

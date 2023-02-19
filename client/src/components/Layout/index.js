@@ -15,7 +15,7 @@ function Layout(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/todo'}>
+                            <Link className='nav-link px-2 text-dark' to={'/todolist'}>
                             <i class="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
                             </Link>
                         </li>
