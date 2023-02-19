@@ -23,7 +23,7 @@ import Layout from './components/Layout'
 function App() {
   // const [loggedIn, setIsLoggedIn] = React.useState(false)
   const httpLink = createHttpLink({
-    uri: "/graphql",
+    uri: "http://localhost:3001/graphql",
   });
   
   const token = localStorage.getItem('id_token')

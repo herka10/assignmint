@@ -16,7 +16,7 @@ function Layout(props) {
                         </li>
                         <li>
                             <Link className='nav-link px-2 text-dark' to={'/todo'}>
-                            <i class="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
+                            <i className="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
                             </Link>
                         </li>
                         <li>
@@ -26,7 +26,7 @@ function Layout(props) {
                         </li>
                         <li>
                             <Link className='nav-link px-2 text-dark' to={'/signin'}>
-                            <i class="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
+                            <i className="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
                             </Link>
                         </li>
                     </ul>

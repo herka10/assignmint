@@ -10,6 +10,9 @@ const { authMiddleware } = require('./utils/auth')
 const PORT = process.env.PORT || 3001
 const app = express()
 
+const cors = require("cors");
+app.use(cors());
+
 const apolloServer = new ApolloServer({ typeDefs, resolvers })
 
 app.use(express.urlencoded({ extended: false }))
