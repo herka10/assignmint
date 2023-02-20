@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import auth from '../../utils/auth'
 
 
 function Layout(props) {
@@ -10,13 +10,13 @@ function Layout(props) {
                 <div className='col-auto min-vh-100' id='navbar'>
                     <ul>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/'}>
+                            <Link className='nav-link px-2 text-dark' to={'/home'}>
                                 <i className='bi-house'></i> <span className='ms-1 d-none d-sm-inline'>Home</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/todolist'}>
-                            <i class="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
+                            <Link className='nav-link px-2 text-dark' to={'/todo'}>
+                            <i className="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
                             </Link>
                         </li>
                         <li>
@@ -25,13 +25,16 @@ function Layout(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link className='nav-link px-2 text-dark' to={'/signin'}>
-                            <i class="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
-                            </Link>
+                            <a className='nav-link px-2 text-dark' href='#' onClick={e=> {
+                                e.preventDefault()
+                                auth.logout()
+                            }}>
+                            <i className="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div className='col'>
+                <div className='col' id='pageRendered'>
                     {props.children}
                 </div>
             </div>
