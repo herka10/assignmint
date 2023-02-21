@@ -13,9 +13,9 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login.js";
 import Calendar from "./pages/Calendar";
-import List from "./pages/List";
-import Header from './components/Header'
-import Layout from './components/Layout'
+import Header from './components/Header';
+import Layout from './components/Layout';
+import ToDoList from './components/List';
 
 //import { StoreProvider } from "./utils/GlobalState";
 
@@ -65,9 +65,9 @@ function App() {
                 <Route 
                   path="/calender" 
                   element={<Calendar />} />
-                <Route 
+                {/* <Route 
                   path="/todo" 
-                  element={<List />} />
+                  element={<List />} /> */}
               </Routes>
             </Layout>
         </div>
