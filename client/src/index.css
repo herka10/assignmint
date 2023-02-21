@@ -35,3 +35,7 @@ li {
 #pageRendered {
   margin-top: 20px;
 }
+
+.myCustomHeight {
+  height: 800px;
+}

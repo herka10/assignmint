@@ -15,7 +15,7 @@ import Login from "./pages/Login.js";
 import Calendar from "./pages/Calendar";
 import Header from './components/Header';
 import Layout from './components/Layout';
-import ToDoList from './components/List';
+// import List from './components/List';
 
 //import { StoreProvider } from "./utils/GlobalState";
 

@@ -24,7 +24,8 @@ function Layout(props) {
                                 <i className='bi-table' /> <span className='ms-1 d-none d-sm-inline'>Calendar</span>
                             </Link>
                         </li>
-                        <li>
+                        {auth.loggedIn()? (
+                            <li>
                             <a className='nav-link px-2 text-dark' href='#' onClick={e=> {
                                 e.preventDefault()
                                 auth.logout()
@@ -32,6 +33,12 @@ function Layout(props) {
                             <i className="bi bi-box-arrow-right"></i> <span className='ms-1 d-none d-sm-inline'>Log Out</span>
                             </a>
                         </li>
+                        ) : (<li>
+                            <Link className='nav-link px-2 text-dark' to={'./'}> 
+                            <i className="bi bi-box-arrow-left"></i> <span className='ms-1 d-none d-sm-inline'>Log In</span>
+                            </Link>
+                        </li>)}
+                        
                     </ul>
                 </div>
                 <div className='col' id='pageRendered'>
