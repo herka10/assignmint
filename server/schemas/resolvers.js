@@ -205,25 +205,27 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       },
 
-      addItem: async (parent, {listId, itemDescription, quanity }, context) => {
+      addItem: async (parent, {listId, itemDescription, quantity }, context) => {
         if (context.user) {
-          const updatedList = await List.findOneAndUpdate(
-            { _id: listId },
-            { $push: { items: { itemDescription, quanity }}},
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id},
+            { $push: { items: { itemDescription, quantity }}},
             { new: true, runValidators: true }
           );
-          return updatedList;
+          return updatedUser;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
 
       removeItem: async (parent, { _id }, context) => {
         if (context.user) {
-          const item = await Item.findById({ _id });
-          if (item) {
-            return await Item.findOneAndDelete({ _id });
-          }
-          throw new AuthenticationError('item not found!');
+
+            const updatedUser = await User.findOneAndUpdate(
+              { _id: context.user._id},
+              { $pull: { items: { _id }}},
+              { new: true, runValidators: true }
+            );
+            return updatedUser
         }
         throw new AuthenticationError('You need to be logged in!');
       }

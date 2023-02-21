@@ -1,6 +1,4 @@
 import React from "react";
-import ListForm from '../components/ListForm'
-import List from '../components/List'
 
 
 //import SignUp from "../components/SignUp";

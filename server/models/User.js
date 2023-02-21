@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const itemSchema = require('./Item');
 
 const userSchema = new Schema({
     name: {
@@ -34,7 +35,11 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Group',
         }
-    ]
+    ],
+    items: {
+       type: [ itemSchema ],
+       default: []
+    }
 });
 
 //set put presave middleware

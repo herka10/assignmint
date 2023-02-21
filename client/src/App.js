@@ -15,7 +15,8 @@ import Login from "./pages/Login.js";
 import Calendar from "./pages/Calendar";
 import Header from './components/Header';
 import Layout from './components/Layout';
-// import List from './components/List';
+import List from './pages/List';
+
 
 //import { StoreProvider } from "./utils/GlobalState";
 
@@ -65,9 +66,9 @@ function App() {
                 <Route 
                   path="/calender" 
                   element={<Calendar />} />
-                {/* <Route 
+                <Route 
                   path="/todo" 
-                  element={<List />} /> */}
+                  element={<List />} />
               </Routes>
             </Layout>
         </div>

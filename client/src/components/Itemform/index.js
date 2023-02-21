@@ -7,7 +7,7 @@ import { ADD_ITEM } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const ItemForm = ({ title }) => {
-  const [item, setToDo] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
 
   const [addItem, { error }] = useMutation(ADD_ITEM);
 
@@ -16,10 +16,10 @@ const ItemForm = ({ title }) => {
 
     try {
       const data = await addItem({
-        variables: { title, item },
+        variables: { itemDescription },
       });
 
-      setToDo('');
+      setItemDescription('');
     } catch (err) {
       console.error(err);
     }
@@ -27,7 +27,7 @@ const ItemForm = ({ title }) => {
 
   return (
     <div>
-      <h4>Endorse some more skills below.</h4>
+      <h4>Add ToDo</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -36,10 +36,10 @@ const ItemForm = ({ title }) => {
         >
           <div className="col-12 col-lg-9">
             <input
-              placeholder="Endorse some skills..."
-              value={item}
+              placeholder="what are you up to?"
+              value={itemDescription}
               className="form-input w-100"
-              onChange={(event) => setToDo(event.target.value)}
+              onChange={(event) => setItemDescription(event.target.value)}
             />
           </div>
 
