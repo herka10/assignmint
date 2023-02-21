@@ -10,6 +10,11 @@ function Layout(props) {
                 <div className='col-auto min-vh-100' id='navbar'>
                     <ul>
                         <li>
+                            <Link className='nav-link px-2 text-dark' to={'/home'}>
+                                <i className='bi-house'></i> <span className='ms-1 d-none d-sm-inline'>Home</span>
+                            </Link>
+                        </li>
+                        <li>
                             <Link className='nav-link px-2 text-dark' to={'/todo'}>
                             <i className="bi bi-list-check"></i> <span className='ms-1 d-none d-sm-inline'>To Dos</span>
                             </Link>
