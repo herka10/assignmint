@@ -27,7 +27,7 @@ const ItemForm = ({ title }) => {
 
   return (
     <div>
-      <h4>Endorse some more skills below.</h4>
+      <h4>Add ToDo</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -36,7 +36,7 @@ const ItemForm = ({ title }) => {
         >
           <div className="col-12 col-lg-9">
             <input
-              placeholder="Endorse some skills..."
+              placeholder="what are you up to?"
               value={item}
               className="form-input w-100"
               onChange={(event) => setToDo(event.target.value)}
