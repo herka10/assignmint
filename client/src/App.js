@@ -16,6 +16,7 @@ import Calendar from "./pages/Calendar";
 import Header from './components/Header';
 import Layout from './components/Layout';
 import List from './pages/List';
+import Footer from './components/Footer'
 
 //import { StoreProvider } from "./utils/GlobalState";
 
@@ -70,6 +71,7 @@ function App() {
                   element={<List />} />
               </Routes>
             </Layout>
+            <Footer />
         </div>
       </Router>
     </ApolloProvider>
