@@ -137,7 +137,7 @@ export const ADD_LIST = gql`
             token
             list {
                 _id
-                name
+                listName
             }
         }
     }
@@ -149,7 +149,7 @@ export const UPDATE_LIST = gql`
             token
             list {
                 _id
-                name
+                listName
             }
         }
     }
@@ -161,7 +161,7 @@ export const REMOVE_LIST = gql`
             token
             list {
                 _id
-                name
+                listName
             }
         }
     }
@@ -170,23 +170,29 @@ export const REMOVE_LIST = gql`
 export const ADD_ITEM = gql`
     mutation addItem($itemDescription: String, $quantity: Int) {
         addItem(itemDescription: $itemDescription, quantity: $quantity) {
-            token
-            item {
+            _id
+             name
+            email
+            items {
                 _id
-                name
+                itemDescription
+                quantity
             }
         }
     }
 `
 
 export const REMOVE_ITEM = gql`
-    mutation removeItem($itemDescription: String, $quantity: Int) {
-        removeItem(itemDescription: $itemDescription, quantity: $quantity) {
-            token
-            item {
-                _id
-                name
-            }
+    mutation removeItem($_id: ID!) {
+        removeItem(_id: $_id) {
+            _id
+            name
+           email
+           items {
+               _id
+               itemDescription
+               quantity
+           }
         }
     }
 `

@@ -7,7 +7,7 @@ import { ADD_ITEM } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const ItemForm = ({ title }) => {
-  const [item, setToDo] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
 
   const [addItem, { error }] = useMutation(ADD_ITEM);
 
@@ -16,10 +16,10 @@ const ItemForm = ({ title }) => {
 
     try {
       const data = await addItem({
-        variables: { title, item },
+        variables: { itemDescription },
       });
 
-      setToDo('');
+      setItemDescription('');
     } catch (err) {
       console.error(err);
     }
@@ -37,9 +37,9 @@ const ItemForm = ({ title }) => {
           <div className="col-12 col-lg-9">
             <input
               placeholder="what are you up to?"
-              value={item}
+              value={itemDescription}
               className="form-input w-100"
-              onChange={(event) => setToDo(event.target.value)}
+              onChange={(event) => setItemDescription(event.target.value)}
             />
           </div>
 
