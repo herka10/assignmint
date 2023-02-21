@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const SignUp = (props) => {
-    const [formState, setFormState] = useState({ 
+    const [formState, setFormState] = useState({
         name: '',
         email: '',
         password: '',
-     });
-    const [addUser, { error, data}] = useMutation(SIGNUP_USER);
+    });
+    const [addUser, { error, data }] = useMutation(SIGNUP_USER);
 
-    // UPDATE STATE BASED ON INPUT CHANGES
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -23,7 +22,6 @@ const SignUp = (props) => {
         });
     };
 
-    // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
@@ -34,27 +32,28 @@ const SignUp = (props) => {
 
             Auth.login(data.addUser.token);
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
 
         // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        })
+        // setFormState({
+        //     email: '',
+        //     password: '',
+        // })
     };
 
     return (
-        <main>
-            <div>
-                <div>
-                    <h4>Sign In</h4>
+        <main className="flex-row justify-center mb-4">
+            <div className="col-12 col-lg-10">
+                <div className="card">
+                    <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
                     <div className="card-body">
                         {data ? (
                             <p>
-                                You have successfully signed in!
+                                You have successfully signed up!
+                                <Link to="/home">To Homepage</Link>
                             </p>
-                        )  :  (
+                        ) : (
                             <form onSubmit={handleFormSubmit}>
                                 <input
                                     className='form-input'
@@ -82,18 +81,20 @@ const SignUp = (props) => {
                                 />
                                 <button
                                     className='btn btn-block btn-info'
-                                    style={{ cursor: 'pointer'}}
+                                    style={{ cursor: 'pointer' }}
                                     type='submit'
+                                    disabled={!(formState.name && formState.email && formState.password)}
+                                    
                                 >Submit</button>
                             </form>
                         )
-                    }
+                        }
 
-                    {error && (
-                        <div className='my-3 p-3 bg-danger'>
-                            {error.message}
-                        </div>
-                    )}
+                        {error && (
+                            <div className='my-3 p-3 bg-danger'>
+                                {error.message}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -101,4 +102,4 @@ const SignUp = (props) => {
     );
 };
 
-export default SignUp ;
+export default SignUp;

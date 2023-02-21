@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import SignUp from './SignUp';
 
 import Auth from '../utils/auth';
 
@@ -83,6 +84,10 @@ const Login = (props) => {
             )}
           </div>
         </div>
+      </div>
+      <h4>Don't have a login? Sign Up Below</h4>
+      <div>
+        <SignUp />
       </div>
     </main>
   );

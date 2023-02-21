@@ -30,6 +30,8 @@ export const SIGNUP_USER = gql`
             user {
                 _id
                 name
+                email
+                password
             }
         }
     }
