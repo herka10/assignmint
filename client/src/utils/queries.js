@@ -4,8 +4,8 @@ export const QUERY_LIST = gql`
 query allLists {
     lists{
         _id
-        title
-        todos
+        listName
+        items
     }
 }
 `;
@@ -24,8 +24,11 @@ query me {
     me {
         _id
         name
-        group
-        lists
+        items {
+            _id
+            itemDescription
+            quantity
+        }
     }
 }
 `

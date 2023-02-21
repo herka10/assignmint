@@ -5,9 +5,9 @@ type User {
     _id: ID
     name: String
     email: String
-    password: String
     events: [Event]
     groups: [Group]
+    items: [Item]
 }
 
 type Event {
@@ -74,8 +74,8 @@ type Mutation {
     addList(listName: String!, createAt: String): List
     updateList(listName: String!, createAt: String): List
     removeList(listName: String!, createAt: String): List
-    addItem(itemDescription: String, quantity: Int): Item
-    removeItem(itemDescription: String, quantity: Int): Item
+    addItem(itemDescription: String, quantity: Int): User
+    removeItem(_id: ID!): User
 }
 `;
 
