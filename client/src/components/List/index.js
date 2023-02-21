@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
 import { REMOVE_ITEM } from '../../utils/mutations';
@@ -7,9 +6,9 @@ import { QUERY_LIST } from '../../utils/queries';
 
 const ToDoList = ({ items, isLoggedInUser = false }) => {
   const [removeItem, { error }] = useMutation(REMOVE_ITEM, {
-    update(catche, { data: { removeItem } }) {
+    update(cache, { data: { removeItem } }) {
       try {
-        caches.writeQuery({
+        cache.writeQuery({
           query: QUERY_LIST,
           data: { list: removeItem },
         });
