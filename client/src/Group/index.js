@@ -31,5 +31,7 @@ const GroupList = ({ title, name, users}) => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default GroupList;

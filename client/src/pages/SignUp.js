@@ -33,8 +33,8 @@ const SignUp = (props) => {
             })
 
             Auth.login(data.addUser.token);
-        } catch (err) {
-            console.error(err);
+        } catch (e) {
+            console.error(e);
         }
 
         // clear form values
