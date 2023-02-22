@@ -30,14 +30,10 @@ const SignUp = (props) => {
             const data = await addUser({
                 variables: { ...formState },
             })
-        const token = data.data.signUpUser.token
-           Auth.login(token);
-           if (token) {
-            navigate('/home')
-           }
+
+            Auth.login(data.addUser.token);
         } catch (err) {
-            setErrorMessage('Duplicate User')
-            console.log(err);
+            console.error(err);
         }
 
         // clear form values

@@ -68,7 +68,7 @@ export const ADD_GROUP = gql`
             token
             group {
                 _id
-                name
+                title
             }
         }
     }
@@ -80,7 +80,7 @@ export const UPDATE_GROUP = gql`
             token
             group {
                 _id
-                name
+                title
             }
         }
     }
@@ -92,7 +92,7 @@ export const REMOVE_GROUP = gql`
             token
             group {
                 _id
-                name
+                title
             }
         }
     }
