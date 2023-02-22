@@ -75,9 +75,26 @@ const resolvers = {
             return { token, user }
         },
 
-        addUser: async (parent, args, context, info) => {
-            const user = await User.Create (args)
+        // addUser: async (parent, args, context, info) => {
+        //   console.log('args', args)
+        //   try {
+        //   const user = await User.Create (args)
+        //     return { token, user };
+        //   } catch(error) {
+        //     console.log('addUserError', error);
+        //   }
+        // },
+
+        signUpUser: async (parent, args, context, info) => {
+          console.log('args==', args)
+          try {
+          const user = await User.create(args)
+          const token = signToken(user)
+          console.log('token', token)
             return { token, user };
+          } catch(error) {
+            console.log('addUserError', error);
+          }
         },
 
         updateUser: async (parent, args, context) => {

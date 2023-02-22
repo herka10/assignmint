@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const SignUp = (props) => {
+    const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState('')
     const [formState, setFormState] = useState({
         name: '',
         email: '',
@@ -24,14 +26,17 @@ const SignUp = (props) => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
         try {
-            const { data } = await addUser({
+            const data = await addUser({
                 variables: { ...formState },
             })
-
-            Auth.login(data.addUser.token);
+        const token = data.data.signUpUser.token
+           Auth.login(token);
+           if (token) {
+            navigate('/home')
+           }
         } catch (err) {
+            setErrorMessage('Duplicate User')
             console.log(err);
         }
 
@@ -48,10 +53,9 @@ const SignUp = (props) => {
                 <div className="card">
                     <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
                     <div className="card-body">
-                        {data ? (
+                        {data && !errorMessage ? (
                             <p>
                                 You have successfully signed up!
-                                <Link to="/home">To Homepage</Link>
                             </p>
                         ) : (
                             <form onSubmit={handleFormSubmit}>
@@ -90,9 +94,9 @@ const SignUp = (props) => {
                         )
                         }
 
-                        {error && (
+                        {error || errorMessage && (
                             <div className='my-3 p-3 bg-danger'>
-                                {error.message}
+                                {errorMessage ? errorMessage : error.message}
                             </div>
                         )}
                     </div>
