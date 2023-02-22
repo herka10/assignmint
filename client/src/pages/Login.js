@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import SignUp from './SignUp';
 
 import Auth from '../utils/auth';
 
 const Login = (props) => {
+  const [errorMessage, setErrorMessage] = useState('')
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
   const handleChange = (event) => {
@@ -28,6 +30,7 @@ const Login = (props) => {
 
       Auth.login(data.login.token);
     } catch (e) {
+      setErrorMessage('Invalid Login')
       console.log(e);
     }
 
@@ -43,10 +46,9 @@ const Login = (props) => {
         <div className="card">
           <h4 className="card-header p-2">Login</h4>
           <div className="card-body">
-            {data ? (
+            {data && !errorMessage ? (
               <p>
                 You have successfully signed in!
-                <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -78,11 +80,15 @@ const Login = (props) => {
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+                {errorMessage ? errorMessage : error.message}
               </div>
             )}
           </div>
         </div>
+      </div>
+      <h4>Don't have a login? Sign Up Below</h4>
+      <div>
+        <SignUp />
       </div>
     </main>
   );

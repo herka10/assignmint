@@ -5,6 +5,7 @@ type User {
     _id: ID
     name: String
     email: String
+    password: String
     events: [Event]
     groups: [Group]
     items: [Item]

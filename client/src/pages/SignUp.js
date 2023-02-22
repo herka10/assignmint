@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const SignUp = (props) => {
-    const [formState, setFormState] = useState({ 
+    const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState('')
+    const [formState, setFormState] = useState({
         name: '',
         email: '',
         password: '',
-     });
-    const [addUser, { error, data}] = useMutation(SIGNUP_USER);
+    });
+    const [addUser, { error, data }] = useMutation(SIGNUP_USER);
 
-    // UPDATE STATE BASED ON INPUT CHANGES
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -23,38 +24,47 @@ const SignUp = (props) => {
         });
     };
 
-    // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
         try {
-            const { data } = await addUser({
+            const data = await addUser({
                 variables: { ...formState },
             })
+<<<<<<< HEAD
 
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
+=======
+        const token = data.data.signUpUser.token
+           Auth.login(token);
+           if (token) {
+            navigate('/home')
+           }
+        } catch (err) {
+            setErrorMessage('Duplicate User')
+            console.log(err);
+>>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
         }
 
         // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        })
+        // setFormState({
+        //     email: '',
+        //     password: '',
+        // })
     };
 
     return (
-        <main>
-            <div>
-                <div>
-                    <h4>Sign In</h4>
+        <main className="flex-row justify-center mb-4">
+            <div className="col-12 col-lg-10">
+                <div className="card">
+                    <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
                     <div className="card-body">
-                        {data ? (
+                        {data && !errorMessage ? (
                             <p>
-                                You have successfully signed in!
+                                You have successfully signed up!
                             </p>
-                        )  :  (
+                        ) : (
                             <form onSubmit={handleFormSubmit}>
                                 <input
                                     className='form-input'
@@ -82,18 +92,20 @@ const SignUp = (props) => {
                                 />
                                 <button
                                     className='btn btn-block btn-info'
-                                    style={{ cursor: 'pointer'}}
+                                    style={{ cursor: 'pointer' }}
                                     type='submit'
+                                    disabled={!(formState.name && formState.email && formState.password)}
+                                    
                                 >Submit</button>
                             </form>
                         )
-                    }
+                        }
 
-                    {error && (
-                        <div className='my-3 p-3 bg-danger'>
-                            {error.message}
-                        </div>
-                    )}
+                        {error || errorMessage && (
+                            <div className='my-3 p-3 bg-danger'>
+                                {errorMessage ? errorMessage : error.message}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -101,4 +113,4 @@ const SignUp = (props) => {
     );
 };
 
-export default SignUp ;
+export default SignUp;
