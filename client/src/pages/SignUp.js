@@ -32,11 +32,14 @@ const SignUp = (props) => {
             })
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
 =======
+=======
+>>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
 =======
 >>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
         const token = data.data.signUpUser.token
@@ -48,6 +51,9 @@ const SignUp = (props) => {
             setErrorMessage('Duplicate User')
             console.log(err);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
+=======
 >>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
 =======
 >>>>>>> 0d1b61020c4c67d4bebdd02fe251b61d4cae8aa5
