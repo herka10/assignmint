@@ -42,7 +42,7 @@ const List = () => {
       {list?.items?.map(item => {
         return(
           <div className='card boarder w-50 p-1 m-1'>
-            <div className='card-body d-flex justify-content-between'>
+            <div className='card-body d-flex justify-content-between animate__animated animate__slideInUp'>
               <p>{item.itemDescription} - {item.quantity}</p>
               <div>
                 <button type="button" className='btn btn-danger p-1 rounded-circle' style = {deleteButtonStyles} onClick= { async() =>{

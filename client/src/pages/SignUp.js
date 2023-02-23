@@ -95,7 +95,7 @@ const SignUp = (props) => {
                         )
                         }
 
-                        {error || errorMessage (
+                        {error || errorMessage && (
                             <div className='my-3 p-3 bg-danger'>
                                 {errorMessage ? errorMessage : error.message}
                             </div>

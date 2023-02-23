@@ -51,7 +51,7 @@ const Login = (props) => {
                 You have successfully signed in!
               </p>
             ) : (
-              <form class="row g-5 m-3 p-3" onSubmit={handleFormSubmit}>
+              <form className="row g-5 m-3 p-3" onSubmit={handleFormSubmit}>
                 <input
                   className="form-input w-25 p-1 m-1"
                   placeholder="Your email"
