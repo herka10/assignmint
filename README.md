@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Final Project: Assignmint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Assignmint is a simple task manager app that handles different types of daily tasks. From daily household tasks, grocery lists and daily/weekly/monthly event planning. Users can create their own logins and update, view, delete tasks as well as update profile information.
 
-## Available Scripts
 
-In the project directory, you can run:
+*Some features available in upcoming version 2.0*
 
-### `npm start`
+A coark board background with the calander having animated functions like page turning. Also looking to add a functional meal/fitness tracker that can be updated daily.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User Story
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+As a person with a busy life style from school to work and managing a business, I need to coordinate household needs among many other tasks such as homework and scheduling work appointments. I use Assignmint to help keep track and share events, see upcoming appointments and create/edit to-do lists.
 
-### `npm test`
+## Website Link
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check it out!
+[Assignmint]()
 
-### `npm run build`
+## Screenshot
+* Create an account, log in, explore the navigation bar and start getting organized with Assignmint!  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![screenshot](./public/images/signin-page.jpg)  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![screenshot](./public/images/main-page.jpg)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![screenshot](./public/images/To-do.jpg)
 
-### `npm run eject`
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This app uses the following technologies: 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Node
+GraphQL
+React
+Bootstrap
+MongoDB
+Apollo
+bcrypt
+BigCalender
+Webtoken
+Mongoose
+Express
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors:
+Kao Nou, Shanice Zupan, Alan Martinez, James Andritsch, Lance Schroeder
