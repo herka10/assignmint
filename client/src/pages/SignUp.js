@@ -31,8 +31,13 @@ const SignUp = (props) => {
                 variables: { ...formState },
             })
 
-            Auth.login(data.addUser.token);
+            const token = data.data.signUpUser.token
+            Auth.login(token);
+            if (token) {
+            navigate('/home')
+            }    
         } catch (err) {
+            setErrorMessage('Duplicate User')
             console.error(err);
         }
 
@@ -90,7 +95,7 @@ const SignUp = (props) => {
                         )
                         }
 
-                        {error || errorMessage && (
+                        {error || errorMessage (
                             <div className='my-3 p-3 bg-danger'>
                                 {errorMessage ? errorMessage : error.message}
                             </div>
