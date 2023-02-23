@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import SignUp from './SignUp';
@@ -7,6 +7,7 @@ import SignUp from './SignUp';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
+  const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState('')
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -27,8 +28,11 @@ const Login = (props) => {
         variables: { ...formState },
       });
       console.log('data', data)
-
-      Auth.login(data.login.token);
+      const token = data.login.token
+      Auth.login(token);
+      if (token) {
+        navigate('/home')
+      }
     } catch (e) {
       setErrorMessage('Invalid Login')
       console.log(e);
