@@ -56,7 +56,7 @@ const ItemForm = ({ title }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to endorse skills. Please{' '}
+           Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
