@@ -123,12 +123,12 @@ export default [
     start: new Date(new Date().setHours(new Date().getHours() - 3)),
     end: new Date(new Date().setHours(new Date().getHours() + 3)),
   },
-  {
-    id: 15,
-    title: 'Point in Time Event',
-    start: now,
-    end: now,
-  },
+  // {
+  //   id: 15,
+  //   title: 'Event Example',
+  //   start: now,
+  //   end: now,
+  // },
   {
     id: 16,
     title: 'Video Record',
@@ -176,5 +176,11 @@ export default [
     title: 'Go to the gym',
     start: new Date(2015, 3, 14, 18, 30, 0),
     end: new Date(2015, 3, 14, 20, 0, 0),
+  },
+  {
+    id: 24,
+    title: 'Last Day of Class! Congrats Everyone!',
+    start: new Date(2023, 1, 23, 18, 30, 0),
+    end: new Date(2023, 1, 23, 21, 30, 0),
   },
 ]
