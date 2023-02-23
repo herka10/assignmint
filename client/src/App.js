@@ -28,7 +28,7 @@ import Footer from './components/Footer'
 function App() {
   // const [loggedIn, setIsLoggedIn] = React.useState(false)
   const httpLink = createHttpLink({
-    uri: "http://localhost:3001/graphql",
+    uri: "/graphql",
   });
   
   const token = localStorage.getItem('id_token')
