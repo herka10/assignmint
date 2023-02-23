@@ -4,7 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "npm run start:prod",
     "start:prod": "node server/server.js",
     "start:dev": "concurrently \"cd server && npx nodemon server\" \"cd client && npm run start\" ",
     "install": "cd server && npm i && cd ../client && npm i",
