@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const itemSchema = require('./Item')
 
 const listSchema = new Schema(
     {
@@ -13,6 +14,8 @@ const listSchema = new Schema(
             defalut: Date.now,
             get: (timestamp) => dateFormat(timestamp)
         },
+
+        items: [ itemSchema ]
 
     }
 );

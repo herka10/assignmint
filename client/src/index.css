@@ -39,3 +39,8 @@ li {
 .myCustomHeight {
   height: 800px;
 }
+
+.card-body {
+  background-color: #E7E5E5;
+  justify-content: center;
+}
