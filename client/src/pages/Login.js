@@ -41,19 +41,19 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="flex-row justify-center mb-4 m-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header p-2">Login</h4>
           <div className="card-body">
             {data && !errorMessage ? (
               <p>
                 You have successfully signed in!
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form class="row g-5 m-3 p-3" onSubmit={handleFormSubmit}>
                 <input
-                  className="form-input"
+                  className="form-input w-25 p-1 m-1"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -61,7 +61,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="form-input w-25 p-1 m-1"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -69,7 +69,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-info"
+                  className="btn btn-block btn-info w-25 p-1 m-1"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -79,14 +79,14 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="my-3 p-3">
                 {errorMessage ? errorMessage : error.message}
               </div>
             )}
           </div>
         </div>
       </div>
-      <h4>Don't have a login? Sign Up Below</h4>
+      <h4 className='m-4 p-3'>Don't have a login? Sign Up Below</h4>
       <div>
         <SignUp />
       </div>

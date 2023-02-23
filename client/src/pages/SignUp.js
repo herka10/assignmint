@@ -30,14 +30,10 @@ const SignUp = (props) => {
             const data = await addUser({
                 variables: { ...formState },
             })
-        const token = data.data.signUpUser.token
-           Auth.login(token);
-           if (token) {
-            navigate('/home')
-           }
+
+            Auth.login(data.addUser.token);
         } catch (err) {
-            setErrorMessage('Duplicate User')
-            console.log(err);
+            console.error(err);
         }
 
         // clear form values
@@ -48,10 +44,10 @@ const SignUp = (props) => {
     };
 
     return (
-        <main className="flex-row justify-center mb-4">
+        <main className="flex-row justify-center mb-4 m-1">
             <div className="col-12 col-lg-10">
                 <div className="card">
-                    <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+                    <h4 className="card-header p-2">Sign Up</h4>
                     <div className="card-body">
                         {data && !errorMessage ? (
                             <p>
@@ -60,7 +56,7 @@ const SignUp = (props) => {
                         ) : (
                             <form onSubmit={handleFormSubmit}>
                                 <input
-                                    className='form-input'
+                                    className='form-input w-25 p-1 m-1'
                                     placeholder='Your Name'
                                     name='name'
                                     type="text"
@@ -68,7 +64,7 @@ const SignUp = (props) => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className='form-input'
+                                    className='form-input w-25 p-1 m-1'
                                     placeholder='Your email'
                                     name='email'
                                     type="email"
@@ -76,7 +72,7 @@ const SignUp = (props) => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className='form-input'
+                                    className='form-input w-25 p-1 m-1'
                                     placeholder='*******'
                                     name='password'
                                     type='password'
@@ -84,7 +80,7 @@ const SignUp = (props) => {
                                     onChange={handleChange}
                                 />
                                 <button
-                                    className='btn btn-block btn-info'
+                                    className='btn btn-block btn-info w-25 p-1 m-1'
                                     style={{ cursor: 'pointer' }}
                                     type='submit'
                                     disabled={!(formState.name && formState.email && formState.password)}
