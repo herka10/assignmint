@@ -30,8 +30,9 @@ const SignUp = (props) => {
             const data = await addUser({
                 variables: { ...formState },
             })
-
+            console.log(data)
             const token = data.data.signUpUser.token
+            
             Auth.login(token);
             if (token) {
             navigate('/home')

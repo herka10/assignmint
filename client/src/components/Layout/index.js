@@ -1,9 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import auth from '../../utils/auth'
 
 
 function Layout(props) {
+    const location = useLocation()
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    
+    useEffect(() => {
+        setIsLoggedIn(auth.loggedIn())
+    }, [location.pathname])
+
     return (
         <div className='container-fluid'>
             <div className='row'>
@@ -24,7 +31,7 @@ function Layout(props) {
                                 <i className='bi-table' /> <span className='ms-1 d-none d-sm-inline'>Calendar</span>
                             </Link>
                         </li>
-                        {auth.loggedIn()? (
+                        {isLoggedIn? (
                             <li>
                             <a className='nav-link px-2 text-dark' href='#' onClick={e=> {
                                 e.preventDefault()
