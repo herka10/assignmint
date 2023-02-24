@@ -15,7 +15,7 @@ As a person with a busy life style from school to work and managing a business, 
 ## Website Link
 
 Check it out!
-[Assignmint]()
+[Assignmint](https://assignmint.herokuapp.com/)
 
 ## Screenshot
 * Create an account, log in, explore the navigation bar and start getting organized with Assignmint!  
